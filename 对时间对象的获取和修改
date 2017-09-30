@@ -1,0 +1,48 @@
+//获取当前的日期,这个oDate信息很丰富,可以紧接着提取需要的信息
+var oDate=new Date();
+
+//获取当前的年月日日期,并以"-"拼接alert显示
+//这里的月是由0到11,故我们需要在其基础上加一个1,正确显示
+alert(oDate.getFullYear()+'-'+(oDate.getMonth()+1)+"-"+oDate.getDate());
+//上面的月和日有时候获取的是单数,他们默认不会以0x显示,eg:08(月),01(日),
+//故我们可以在他们前面设置一个转换函数,toDouble(),即toDouble((oDate.getMonth()+1))
+function toDouble(num){
+    if(num<10){
+      return '0'+num;
+    }
+    else{
+     return ''+num;
+    }
+}
+/////////////////////////////
+//当我们获取日期中的周几的时候,礼拜是由0开始到6的,我们第一可以通过'day+1'的办法,还可以自定义函数,使显示周日,周六
+function toChinese(day){
+				switch(day){
+					case 1:
+					return 'one';
+					case 2:
+					return 'two';
+					case 3:
+					return 'thre';
+					case 4:
+					return 'four';
+					case 5:
+					return 'five';
+					case 6:
+					return 'six';
+					case 0:
+					return 'seven';/*周日,一个礼拜的第一天,所以索引为0*/
+				}
+    /////////////////////////
+///////////还有就是如何定时设置第n时间后是多少天
+  | oDate.setDate(oDate.getDate()+30000);//这里设置的时间是当前日期之后的第30000天|
+   //如下,显示出来的时间是 2099-11-19 
+     var oDate=new Date();
+			oDate.setDate(oDate.getDate()+30000);//当前日期之后30000天
+			alert(oDate.getFullYear()+'-'+(oDate.getMonth()+1)+"-"+oDate.getDate());
+
+
+
+
+
+
